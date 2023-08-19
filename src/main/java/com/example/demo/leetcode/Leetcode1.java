@@ -1,5 +1,7 @@
 package com.example.demo.leetcode;
 
+import com.example.demo.selftest.ListNode;
+import com.example.demo.selftest.TreeNode;
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 

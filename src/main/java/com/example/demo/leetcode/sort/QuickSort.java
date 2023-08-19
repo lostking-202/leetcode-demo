@@ -2,6 +2,7 @@ package com.example.demo.leetcode.sort;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 //快速排序算法
@@ -72,4 +73,28 @@ public class QuickSort {
         if(start-1>i)partition2(array,i,start-1);
         if(end+1<j)partition2(array,end+1,j);
     }
+
+    public void quickSort3(int[] array,int start,int end){
+        if(start<end){
+            int key=array[start];
+            int i =start;
+            for(int j=start+1;j<=end;j++){
+                if(key>array[j]){
+                    i+=1;
+                    swap(array,j,i);
+                }
+            }
+            array[start]=array[i];
+            array[i]=key;
+            quickSort3(array,start,i-1);
+            quickSort3(array,i+1,end);
+        }
+    }
+    @Test
+    public void test3(){
+        int[] arr={5,3,7,6,4,1,0,2,9,10,8};
+        quickSort3(arr,0,arr.length-1);
+        Arrays.stream(arr).forEach(System.out::println);
+    }
+
 }
