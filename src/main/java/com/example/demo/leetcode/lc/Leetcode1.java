@@ -1,7 +1,7 @@
-package com.example.demo.leetcode;
+package com.example.demo.leetcode.lc;
 
-import com.example.demo.selftest.ListNode;
-import com.example.demo.selftest.TreeNode;
+import com.example.demo.leetcode.datastructure.ListNode;
+import com.example.demo.leetcode.datastructure.TreeNode;
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
@@ -608,6 +608,26 @@ public class Leetcode1 {
             }
         }
         return count;
+    }
+
+    public int[] twoSum2(int[] nums, int target) {
+        List<Integer> list=new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            if(!list.contains(target-nums[i])){
+                list.add(nums[i]);
+            }else{
+                int[] arrays={list.indexOf(target-nums[i]),list.size()};
+                return arrays;
+            }
+        }
+        return new int[0];
+    }
+
+    @Test
+    public void test(){
+        int[] nums={2,7,11,15};
+        int target=9;
+        Arrays.stream(twoSum2(nums,target)).forEach(System.out::println);
     }
 }
 

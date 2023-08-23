@@ -1,4 +1,4 @@
-package com.example.demo.leetcode;
+package com.example.demo.leetcode.lc;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class Leetcode17 {
 
     @Test
     public void test(){
-        System.out.println(combineLetters("234"));
+        System.out.println(letterCombinations("432"));
     }
 
     String[] arrays={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
@@ -36,35 +36,13 @@ public class Leetcode17 {
             return;
         }
         int index=stringBuilder.length();
-        String letter=arrays[index+2];
+        String letter=arrays[Integer.parseInt(digits.substring(index,index+1))];
         for(int i=0;i<letter.length();i++){
             stringBuilder.append(letter.substring(i,i+1));
             combineLetters(stringBuilder,combines,digits);
             stringBuilder.deleteCharAt(stringBuilder.length()-1);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public List<String> combineLetters(String dig){
         List<String> combines=new ArrayList<>();
@@ -80,7 +58,8 @@ public class Leetcode17 {
             combines.add(stringBuilder.toString());
             return;
         }
-        String letter=arrays[stringBuilder.length()+2];
+        int index=stringBuilder.length();
+        String letter=arrays[Integer.parseInt(dig.substring(index,index+1))];
         for(Character c:letter.toCharArray()){
             stringBuilder.append(c);
             combineLetters2(stringBuilder,combines,dig);

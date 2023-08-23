@@ -1,4 +1,4 @@
-package com.example.demo.leetcode;
+package com.example.demo.leetcode.lc;
 
 import org.junit.Test;
 
@@ -24,6 +24,8 @@ public class Leetcode128 {
             if(nums[i]-nums[i-1]==1){
                 current++;
                 maxLength= Math.max(maxLength,current);
+            }else if(nums[i]==nums[i-1]){
+
             }else{
                 current=1;
             }
@@ -33,7 +35,7 @@ public class Leetcode128 {
 
     @Test
     public void test(){
-        int[] nums={100,4,200,1,3,2};
+        int[] nums={9,1,4,7,3,-1,0,5,8,-1,6};
         System.out.println(longestConsecutive(nums));
     }
 }

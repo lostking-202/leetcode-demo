@@ -1,5 +1,6 @@
 package com.example.demo.selftest;
 
+import com.example.demo.leetcode.datastructure.ListNode;
 import org.junit.Test;
 
 import java.util.ArrayList;

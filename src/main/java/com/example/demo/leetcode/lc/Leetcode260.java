@@ -1,4 +1,4 @@
-package com.example.demo.leetcode;
+package com.example.demo.leetcode.lc;
 
 import org.junit.Test;
 
@@ -13,7 +13,13 @@ import java.util.*;
  */
 public class Leetcode260 {
 
-    public int[] singleNumber(int[] nums) {
+    @Test
+    public void test(){
+        int[] nums={1,2,1,3,2,5};
+        Arrays.stream(singleNumber3(nums)).forEach(System.out::println);
+    }
+
+    public int[] singleNumber1(int[] nums) {
         if(nums==null||nums.length<2){
             return null;
         }
@@ -33,11 +39,6 @@ public class Leetcode260 {
         }
         return list.stream().mapToInt(Integer::intValue).toArray();
     }
-    @Test
-    public void test(){
-        int[] nums={1,2,1,3,2,5};
-        Arrays.stream(singleNumber(nums)).forEach(System.out::println);
-    }
 
     public int[] singleNumber2(int[] nums) {
         if(nums==null||nums.length<2){
@@ -52,5 +53,20 @@ public class Leetcode260 {
             }
         }
         return map.keySet().stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    public int[] singleNumber3(int[] nums) {
+        if(nums==null||nums.length<2){
+            return null;
+        }
+        List<Integer> list=new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            if(list.contains(nums[i])){
+                list.remove(new Integer(nums[i]));
+            }else{
+                list.add(nums[i]);
+            }
+        }
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }

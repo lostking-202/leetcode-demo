@@ -1,4 +1,4 @@
-package com.example.demo.selftest;
+package com.example.demo.leetcode.datastructure;
 
 public class ListNode {
     public int val;
