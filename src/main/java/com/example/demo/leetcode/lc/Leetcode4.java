@@ -36,9 +36,4 @@ public class Leetcode4 {
         }
     }
 
-    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
-        // todo
-        return 0;
-    }
-
 }

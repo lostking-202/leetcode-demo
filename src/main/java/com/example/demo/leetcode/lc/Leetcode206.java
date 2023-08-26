@@ -10,6 +10,17 @@ import org.junit.Test;
  */
 public class Leetcode206 {
 
+    @Test
+    public void test(){
+        ListNode node1=new ListNode(1);
+        ListNode node2=new ListNode(2);
+        ListNode node3=new ListNode(3);
+        node1.next=node2;
+        node2.next=node3;
+        ListNode result=reverseList4(node1);
+        System.out.println(result);
+    }
+
     public ListNode reverseList(ListNode head) {
         ListNode reversedNode=new ListNode(0);
         while(head!=null) {
@@ -41,16 +52,6 @@ public class Leetcode206 {
     // 2->1->null  3->null
     //3->2->1->null
 
-    @Test
-    public void test(){
-        ListNode node1=new ListNode(1);
-        ListNode node2=new ListNode(2);
-        ListNode node3=new ListNode(3);
-        node1.next=node2;
-        node2.next=node3;
-        ListNode result=reverseList3(node1);
-        System.out.println(result);
-    }
 
 
     public ListNode reverseList3(ListNode head){
@@ -66,6 +67,21 @@ public class Leetcode206 {
             // 重置旧链表的头节点
             curr=next;
             System.out.println(prev);
+        }
+        return prev;
+    }
+
+    public ListNode reverseList4(ListNode head){
+        ListNode prev=null;
+        ListNode curr=head;
+        while(curr!=null){
+            //将旧链表的当前节点接到新链表的前面
+            ListNode next=curr.next;
+            curr.next=prev;
+            //重置新链表的头节点
+            prev=curr;
+            // 重置旧链表的头节点
+            curr=next;
         }
         return prev;
     }

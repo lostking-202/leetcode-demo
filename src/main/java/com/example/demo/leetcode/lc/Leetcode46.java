@@ -22,8 +22,33 @@ public class Leetcode46 {
     @Test
     public void test(){
         int[] nums={1,2,3};
-        List<List<Integer>> results=permute2(nums);
+        List<List<Integer>> results=permute3(nums);
         System.out.println(results);
+    }
+
+    public List<List<Integer>> permute3(int[] nums){
+        List<List<Integer>> results=new ArrayList<>();
+        boolean[] used=new boolean[nums.length];
+        permute3(nums,results,used,new ArrayList<>());
+        return results;
+    }
+
+    private void permute3(int[] nums,List<List<Integer>> results,boolean[] used,List<Integer> result){
+        if(result.size()==nums.length){
+            results.add(new ArrayList<>(result));
+            return;
+        }
+        for(int i=0;i<nums.length;i++){
+            if(used[i]){
+                continue;
+            }
+            result.add(nums[i]);
+            used[i]=true;
+            // used只针对深入递归有效，用完还原
+            permute3(nums,results,used,result);
+            used[i]=false;
+            result.remove(result.size()-1);
+        }
     }
 
     public List<List<Integer>> permute(int[] nums) {
@@ -55,7 +80,7 @@ public class Leetcode46 {
 
     private void permute2(List<List<Integer>> results,int[] nums,List<Integer> result){
         if(result.size()==nums.length){
-            results.add(result);
+            results.add(new ArrayList<>(result));
             return;
         }
         for(Integer num:nums){
@@ -63,7 +88,7 @@ public class Leetcode46 {
                 continue;
             }else{
                 result.add(num);
-                permute(results,nums,result);
+                permute2(results,nums,result);
                 result.remove(result.size()-1);
 
             }

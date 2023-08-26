@@ -25,11 +25,38 @@ public class Leetcode53 {
         System.out.println(maxSubArray(nums));
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int maxSubArray(int[] nums) {
         int cur=nums[0];
         int max=cur;
         for(int i=1;i<nums.length;i++){
+            // 前面的和小于0就抛掉，否则不抛掉
             cur=Math.max(cur,0)+nums[i];
+            System.out.println(cur);
             max=Math.max(cur,max);
         }
         return max;

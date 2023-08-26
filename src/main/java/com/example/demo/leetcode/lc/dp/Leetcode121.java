@@ -22,7 +22,42 @@ public class Leetcode121 {
     @Test
     public void test(){
         int[] prices={7,1,5,3,6,4};
-        System.out.println(maxProfit(prices));
+        System.out.println(maxProfit3(prices));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int maxProfit3(int[] prices){
+        int hold=prices[0];
+        int unhold=0;
+        int max=unhold;
+        for(int i=1;i< prices.length;i++){
+            hold=Math.min(hold,prices[i]);
+            unhold=prices[i]-hold;
+            max=Math.max(max,unhold);
+        }
+        return max;
     }
 
     public int maxProfit(int[] prices) {

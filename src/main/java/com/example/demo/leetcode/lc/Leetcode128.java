@@ -13,6 +13,29 @@ import java.util.Map;
  * 请你设计并实现时间复杂度为 O(n) 的算法解决此问题。
  */
 public class Leetcode128 {
+
+
+
+    @Test
+    public void test(){
+        int[] nums={9,1,4,7,3,-1,0,5,8,-1,6};
+        System.out.println(longestConsecutive(nums));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int longestConsecutive(int[] nums) {
         if(nums==null||nums.length==0){
             return 0;
@@ -33,9 +56,5 @@ public class Leetcode128 {
         return maxLength;
     }
 
-    @Test
-    public void test(){
-        int[] nums={9,1,4,7,3,-1,0,5,8,-1,6};
-        System.out.println(longestConsecutive(nums));
-    }
+
 }

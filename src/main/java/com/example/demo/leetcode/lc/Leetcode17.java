@@ -3,6 +3,7 @@ package com.example.demo.leetcode.lc;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -67,4 +68,25 @@ public class Leetcode17 {
         }
     }
 
+    // BFS解法
+    public List<String> letterCombinations2(String digits){
+        LinkedList<String> res=new LinkedList<>();
+        char[][] tab = {{'a', 'b', 'c'}, {'d', 'e', 'f'}, {'g', 'h', 'i'},
+                {'j', 'k', 'l'}, {'m', 'n', 'o'}, {'p', 'q', 'r', 's'},
+                {'t', 'u', 'v'}, {'w', 'x', 'y', 'z'}};
+        res.add("");
+        while(res.peek().length()!=digits.length()){
+            String remove=res.poll();
+            char[] c=tab[digits.charAt(remove.length())-'2'];
+            for(Character cc:c){
+                res.add(remove+cc);
+            }
+        }
+        return res;
+    }
+
+    @Test
+    public void test2(){
+
+    }
 }

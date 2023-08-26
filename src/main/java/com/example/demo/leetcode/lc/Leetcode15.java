@@ -27,6 +27,27 @@ public class Leetcode15 {
         int[] nums={-1,0,1,2,-1,-4};
         System.out.println(threeSum(nums));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // 看的答案
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);

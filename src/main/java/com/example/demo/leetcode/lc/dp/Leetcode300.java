@@ -18,17 +18,25 @@ public class Leetcode300 {
 
     @Test
     public void test(){
-        /*int[] nums={10,9,2,5,3,7,101,18};
-        System.out.println(lengthOfLIS(nums));*/
+        int[] nums={4,10,4,3,8,9};
+                 // 1 2  1 1 1 3 4
+        System.out.println(lengthOfLIS2(nums));
 
-        List<Integer> list=new ArrayList<>();
+        /*List<Integer> list=new ArrayList<>();
         list.add(1);
         list.add(2);
         list.add(4);
         list.add(5);
-        System.out.println(Collections.binarySearch(list,7));
+        list.add(10);
+        System.out.println(Collections.binarySearch(list,-1));
+*/
+
+        /*int[] nums={4,10,4,3,8,9};
+                    // 1 2 1 1 2 3*/
+
 
     }
+
 
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0) {
@@ -39,15 +47,19 @@ public class Leetcode300 {
         dp[0]=1;
         for(int i=1;i<nums.length;i++){
             //每一个数都需要和前面的所有数比较大小
+            // dp[i]表示当前最大子序列长度或者没更新
             dp[i]=1;
             for(int j=0;j<i;j++){
                 if(nums[j]<nums[i]){
-                    //d[0]=1 d[1]=1 d[2]=1 d[3]=2 d[4]=2 d[4]=3 d[5]=4 d[6]=[4] d[7]=4
-                    // i=6 j=0  dp[6] = Math.max(dp[6], dp[0] + 1)=2;
-                    ///i=6 j=1  dp[6] = Math.max(dp[6], dp[1] + 1)=2;
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                    // 1 2 1 1 2 3
+                    // i=5 j=0 Math.max(1,1+1)
+                    // i=5 j=2 Math.max(2,1+1)
+                    // i=5 j=3 Math.max(2,1+1)
+                    // i=5 j=4 Math.max(2,2+1)
+                    dp[i] =  Math.max(dp[j]+1,dp[i]);
                 }
             }
+            System.out.println(dp[i]);
             max=Math.max(max,dp[i]);
         }
        return max;
@@ -62,6 +74,8 @@ public class Leetcode300 {
                 int n=Collections.binarySearch(list,num);
                 if(n<0){
                     list.set(-n-1,num);
+                }else{
+                    list.set(n,num);
                 }
             }
         }
