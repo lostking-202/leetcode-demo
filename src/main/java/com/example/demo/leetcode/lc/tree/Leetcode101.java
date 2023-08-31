@@ -17,6 +17,19 @@ import java.util.Stack;
  */
 public class Leetcode101 {
 
+    public boolean isSymmetric2(TreeNode root) {
+        if(root==null){
+            return true;
+        }
+        if(root.left==null&&root.right==null){
+            return true;
+        }
+        if((root.left==null&&root.right!=null)||(root.left!=null&&root.right==null)){
+            return false;
+        }
+        return root.left.val==root.right.val&&isSymmetric2(root.left)&&isSymmetric2(root.right);
+    }
+
     public boolean isSymmetric(TreeNode root) {
         return isSymmetric(root.left,root.right);
     }

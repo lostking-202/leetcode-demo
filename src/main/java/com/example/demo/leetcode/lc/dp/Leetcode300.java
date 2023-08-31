@@ -19,8 +19,8 @@ public class Leetcode300 {
     @Test
     public void test(){
         int[] nums={4,10,4,3,8,9};
-                 // 1 2  1 1 1 3 4
-        System.out.println(lengthOfLIS2(nums));
+                 // 1 2  1 1 1 3
+        System.out.println(lengthOfLIS3(nums));
 
         /*List<Integer> list=new ArrayList<>();
         list.add(1);
@@ -37,6 +37,23 @@ public class Leetcode300 {
 
     }
 
+
+    public int lengthOfLIS3(int[] nums){
+
+        int[] dp=new int[nums.length];
+        dp[0]=1;
+        int max=1;
+        for(int i=1;i<nums.length;i++){
+            dp[i]=1;
+            for(int j=0;j<i;j++){
+                if(nums[i]>nums[j]){
+                    dp[i]=Math.max(dp[j]+1,dp[i]);
+                }
+            }
+            max=Math.max(max,dp[i]);
+        }
+        return max;
+    }
 
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0) {

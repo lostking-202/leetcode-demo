@@ -28,6 +28,7 @@ public class Leetcode1448 {
         }
         return nums[0];
     }
+
     private void goodNodes(int[] nums, TreeNode root,int max){
         if(root==null){
             return;
